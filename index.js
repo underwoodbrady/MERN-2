@@ -26,13 +26,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-/*
-let io = require("socket.io")(httpsServ, {
-    cors: {
-        origin: "http://localhost:2000",
-        methods: ["GET", "POST"],
-    },
-});
+
+let io = require("socket.io")(app, {});
 
 let serverCount = 0;
 
@@ -55,9 +50,10 @@ io.on("connection", (socket) => {
         SOCKET_LIST.splice(socket, 1);
     });
 });
-
+/*
 httpsServ.listen(PORT + 1, () =>
     console.log(`Server running on port: ${PORT + 1} (https)`)
 );
-*/
 
+
+*/
