@@ -20,7 +20,7 @@ let PORT = process.env.PORT || 2020;
 
 //let index = require("./routes/index.js");
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+//app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 
 app.use(express.static(path.join(__dirname, 'build')));
 
