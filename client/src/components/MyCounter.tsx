@@ -5,22 +5,29 @@ import CounterButton from "./CounterButton";
 const MyCounter = ({
     incBy = 1,
     decBy = 1,
+    countChanged = ()=>{},
+    currentCount = 0,
 }: {
     incBy?: number;
     decBy?: number;
+    countChanged?: (val:number) => void;
+    currentCount?: number;
 }) => {
     const [countState, setCountState] = useState<number>(0);
 
     useEffect(() => {
-        setCountState(10);
-    }, []);
+        setCountState(currentCount);
+    }, [setCountState, currentCount]);
 
     const incCount = () => {
         setCountState(countState + incBy);
+        countChanged(incBy);
     };
 
     const decCount = () => {
         setCountState(countState - decBy);
+        countChanged(-decBy);
+
     };
 
     return (
