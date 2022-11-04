@@ -30,7 +30,7 @@ function App() {
         <div className="w-full h-screen flex flex-col items-center justify-center">
             <div className="flex flex-col justify-center items-center mt-auto">
                 <h1 className="font-semibold text-7xl mb-2">Hello React!</h1>
-                <h2 className="text-lg mb-12 italic">Open a new page to see how server counter works</h2>
+                <h2 className="text-lg mb-12 italic text-neutral-300">Open a new page to see how server counter works</h2>
                 <div className="flex flex-row space-x-8 mb-8">
                     <div>
                         <h3 className="mb-2 text-center">Client Counter</h3>
