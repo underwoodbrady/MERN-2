@@ -1,4 +1,4 @@
-# mern-2
+# Mern-2
 MERN Stack app built with React and Socket.io for CSCI331
 
 ## Folder Structure
