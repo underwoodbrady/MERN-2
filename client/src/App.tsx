@@ -4,7 +4,7 @@ import MyGitHub from "./components/MyGitHub";
 
 import socketClient from "socket.io-client";
 
-const SERVER = "https://localhost:2021";
+const SERVER = "https://mern-assignment-2.herokuapp.com/";
 
 let socket: any;
 
