@@ -1,7 +1,8 @@
 const express = require("express"),
     app = express(),
     https = require("https"),
-    fs = require("fs");
+    fs = require("fs"),
+    path = require('path');
 
 /* HTTPS Stuff*/
 const privateKey = fs.readFileSync("cert/localhost-key.pem", "utf8");
@@ -16,15 +17,19 @@ let httpsServ = https.Server(credentials, app);
 
 let PORT = process.env.PORT | 2020;
 
-let index = require("./routes/index.js");
-
-app.use(index);
+//let index = require("./routes/index.js");
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 let io = require("socket.io")(httpsServ, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "http://localhost:2000",
         methods: ["GET", "POST"],
     },
 });
