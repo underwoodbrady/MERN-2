@@ -32,8 +32,8 @@ function App() {
                 <h1 className="font-semibold text-7xl mb-12">Hello React!</h1>
                 <div className="flex flex-row space-x-8 mb-8">
                     <div>
-                        <h2 className="mb-2 text-center">Local Counter</h2>
-                        <MyCounter incBy={2} decBy={2} />
+                        <h2 className="mb-2 text-center">Client Counter</h2>
+                        <MyCounter incBy={1} decBy={3} />
                     </div>
                     <div>
                         <h2 className="mb-2 text-center">Server Counter</h2>
