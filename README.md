@@ -29,4 +29,4 @@ This is the branch I am using to deploy directly to heroku, it doesn't have a cl
 
     $npm run build
     
-*Must change socket.io client url in app.jsx before building*
+*Must change socket.io server url in app.jsx before building*
