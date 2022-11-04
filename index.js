@@ -2,6 +2,7 @@ const express = require("express"),
     app = express(),
     https = require("https"),
     fs = require("fs"),
+    serv = require('http').Server(app),
     path = require('path');
 
 /* HTTPS Stuff
@@ -27,7 +28,12 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-let io = require("socket.io")(app, {});
+/*
+httpsServ.listen(PORT + 1, () =>
+    console.log(`Server running on port: ${PORT + 1} (https)`)
+);
+*/
+let io = require("socket.io")(serv, {});
 
 let serverCount = 0;
 
@@ -50,10 +56,7 @@ io.on("connection", (socket) => {
         SOCKET_LIST.splice(socket, 1);
     });
 });
-/*
-httpsServ.listen(PORT + 1, () =>
-    console.log(`Server running on port: ${PORT + 1} (https)`)
-);
 
 
-*/
+
+
