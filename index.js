@@ -21,7 +21,7 @@ let PORT = process.env.PORT | 2020;
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.get('/', (req,res)=>{
     res.send("hi");
