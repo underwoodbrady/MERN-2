@@ -2,7 +2,7 @@ const express = require("express"),
     app = express(),
     https = require("https"),
     fs = require("fs"),
-    serv = require('https').Server(app),
+    serv = require('http').Server(app),
     path = require('path');
 
 /* HTTPS Stuff
