@@ -29,14 +29,15 @@ function App() {
     return (
         <div className="w-full h-screen flex flex-col items-center justify-center">
             <div className="flex flex-col justify-center items-center mt-auto">
-                <h1 className="font-semibold text-7xl mb-12">Hello React!</h1>
+                <h1 className="font-semibold text-7xl mb-2">Hello React!</h1>
+                <h2 className="text-lg mb-12 italic">Open a new page to see how server counter works</h2>
                 <div className="flex flex-row space-x-8 mb-8">
                     <div>
-                        <h2 className="mb-2 text-center">Client Counter</h2>
+                        <h3 className="mb-2 text-center">Client Counter</h3>
                         <MyCounter incBy={1} decBy={3} />
                     </div>
                     <div>
-                        <h2 className="mb-2 text-center">Server Counter</h2>
+                        <h3 className="mb-2 text-center">Server Counter</h3>
                         <MyCounter
                             currentCount={serverValue}
                             incBy={5}
