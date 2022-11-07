@@ -17,7 +17,9 @@ let httpsServ = https.Server(credentials, app);
 
 let PORT = process.env.PORT || 2020;
 
-app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));
+httpsServ.listen(PORT + 1, () =>
+    console.log(`Server running on port: ${PORT + 1} (https)`)
+);
 
 let io = require("socket.io")(httpsServ, {
     cors: {
@@ -33,11 +35,11 @@ let SOCKET_LIST = [];
 io.on("connection", (socket) => {
     SOCKET_LIST.push(socket);
 
-    console.log("New client connected");
-
     socket.emit("newValue", { count: serverCount });
 
     socket.on("updateValue", (newVal) => {
+        if(typeof(newVal) != "number")
+            return;
         serverCount = serverCount + newVal;
         for (let i = 0; i < SOCKET_LIST.length; i++)
             SOCKET_LIST[i].emit("newValue", { count: serverCount });
@@ -48,6 +50,3 @@ io.on("connection", (socket) => {
     });
 });
 
-httpsServ.listen(PORT + 1, () =>
-    console.log(`Server running on port: ${PORT + 1} (https)`)
-);

@@ -9,12 +9,12 @@ const SERVER = "https://localhost:2021";
 let socket: any;
 
 function App() {
-    const [serverValue, setServerValue] = useState(0);
+    const [serverValue, setServerValue] = useState<number>(0);
 
     useEffect(() => {
         socket = socketClient(SERVER);
 
-        socket.on("newValue", (data: any) => {
+        socket.on("newValue", (data: {count: number}) => {
           setServerValue(data.count);
             console.log("newValue");
         });

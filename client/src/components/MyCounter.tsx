@@ -27,7 +27,6 @@ const MyCounter = ({
     const decCount = () => {
         setCountState(countState - decBy);
         countChanged(-decBy);
-
     };
 
     return (
