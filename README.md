@@ -28,3 +28,5 @@ The project is currently live at http://csci330.cs.montana.icu/, or if running y
 This is the branch I am using to deploy directly to heroku, it doesn't have a client and uses the build pack created with:
 
     $npm run build
+    
+*Must change socket.io server url in app.jsx before building*
